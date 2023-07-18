@@ -15,6 +15,10 @@ Within this repo is a demo UI that our team needs to make some changes to before
 Reading the documentation the filters and the columns can be sorted/filter with custom functionality, I just left the basic filtering and sorting because I think covers the requirements on this task.
 
 3. The users have complained that the dates are not very readable. Please display the dates in a format that is more human-readable. I will trust your input on what format is best in this case.
+
+#comments
+Seems like this version is not supporting custom dataTypeDefinitions or I need to read more about the implementation of the custom data type definitions to have a more cleaner implementation, at the moment is something simple.
+
 4. Rather than just displaying Y or N or n/a in the Potentially Hazardous column, we should display "Yes", "No", and a blank cell for those values respectively.
 5. The users would like to be able to copy the information from this grid into a software like Excel. The user should be able to select any portion of this grid, copy the data, and paste it into excel. When they do this, they should get only the data that is copied, and they should get that data as it is displayed within the grid.
 6. The users want to be able to quickly clear all filtering and sorting that is going on in their grid. They want one button they can click that will restore the grid to it's default view, unfiltered and unsorted. Can you add a button (of any kind) to the right of the title we added previously? The button should say "Clear Filters and Sorters" and should be positioned with a 15px space between the title and the button.

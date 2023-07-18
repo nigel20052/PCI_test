@@ -35,13 +35,18 @@ const defaultColDef = {
   filter: true,
 };
 
+const formatedData = data.map((d) => ({
+  ...d,
+  discovery_date: new Date(d.discovery_date).toLocaleString(),
+}))
+
 const NeoGrid = (): JSX.Element => {
   return (
     <>
       <h2>Near-Earth Object Overview</h2>
       <div className="ag-theme-alpine" style={{ height: 900, width: 1920 }}>
         <AgGridReact
-          rowData={data}
+          rowData={formatedData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           rowGroupPanelShow={"always"}
