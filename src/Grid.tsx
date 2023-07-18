@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
 import data from "./near-earth-asteroids.json";
@@ -11,7 +12,7 @@ const phaFormatter = (params: any) => {
 const dateFormatter = (params: any) => {
   const dateStr = params.data.discovery_date;
   return dateStr ? new Date(dateStr).toLocaleString() : "N/A";
-}
+};
 
 const columnDefs: ColDef[] = [
   {
@@ -30,7 +31,11 @@ const columnDefs: ColDef[] = [
   { field: "q_au_2", headerName: "Q (au)" },
   { field: "period_yr", headerName: "Period (yr)" },
   { field: "i_deg", headerName: "Inclination (deg)" },
-  { field: "pha", headerName: "Potentially Hazardous", valueFormatter: phaFormatter },
+  {
+    field: "pha",
+    headerName: "Potentially Hazardous",
+    valueFormatter: phaFormatter,
+  },
   {
     field: "orbit_class",
     headerName: "Orbit Class",
@@ -47,13 +52,26 @@ const defaultColDef = {
   cellDataType: false,
 };
 
-
 const NeoGrid = (): JSX.Element => {
+  const gridRef = useRef<AgGridReact>(null);
+
+  const reset = () => {
+    if(gridRef.current){
+      gridRef.current.api.setFilterModel(null);
+    }
+  };
+
   return (
     <>
-      <h2>Near-Earth Object Overview</h2>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <h2>Near-Earth Object Overview</h2>
+        <button onClick={reset} style={{ marginLeft: "15px" }}>
+          Clear Filters and Sorters
+        </button>
+      </div>
       <div className="ag-theme-alpine" style={{ height: 900, width: 1920 }}>
         <AgGridReact
+          ref={gridRef}
           rowData={data}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
