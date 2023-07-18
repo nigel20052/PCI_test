@@ -10,6 +10,10 @@ Within this repo is a demo UI that our team needs to make some changes to before
 
 1. The client would like a title on this page. Above the table, but within the app window, add a title that says "Near-Earth Object Overview". Please also make this title replace the default "React App" that shows on the tab for this window. This will give a clear indication of what the table and application are for.
 2. While this list of data is great, it would be useful for the user to be able to interact with beyond scrolling. We need to add sorting to the grid. Make the changes necessary to allow the user to sort all columns. String columns should sort alphabetically. Numerical columns should sort by value. Date columns should sort chronologically. In addition to sorting, the user wants to be able to filter their data. Numeric columns should have a filter that supports numerical filtering, and string columns should have a filter that supports string filtering.
+
+#commments
+Reading the documentation the filters and the columns can be sorted/filter with custom functionality, I just left the basic filtering and sorting because I think covers the requirements on this task.
+
 3. The users have complained that the dates are not very readable. Please display the dates in a format that is more human-readable. I will trust your input on what format is best in this case.
 4. Rather than just displaying Y or N or n/a in the Potentially Hazardous column, we should display "Yes", "No", and a blank cell for those values respectively.
 5. The users would like to be able to copy the information from this grid into a software like Excel. The user should be able to select any portion of this grid, copy the data, and paste it into excel. When they do this, they should get only the data that is copied, and they should get that data as it is displayed within the grid.

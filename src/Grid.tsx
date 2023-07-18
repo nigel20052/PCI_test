@@ -5,8 +5,15 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 const columnDefs: ColDef[] = [
-  { field: "designation", headerName: "Designation" },
-  { field: "discovery_date", headerName: "Discovery Date" },
+  {
+    field: "designation",
+    headerName: "Designation",
+    filterParams: { defaultOption: "contains" },
+  },
+  {
+    field: "discovery_date",
+    headerName: "Discovery Date",
+  },
   { field: "h_mag", headerName: "H (mag)" },
   { field: "moid_au", headerName: "MOID (au)" },
   { field: "q_au_1", headerName: "q (au)" },
@@ -14,8 +21,19 @@ const columnDefs: ColDef[] = [
   { field: "period_yr", headerName: "Period (yr)" },
   { field: "i_deg", headerName: "Inclination (deg)" },
   { field: "pha", headerName: "Potentially Hazardous" },
-  { field: "orbit_class", headerName: "Orbit Class", enableRowGroup: true },
+  {
+    field: "orbit_class",
+    headerName: "Orbit Class",
+    enableRowGroup: true,
+    filterParams: { defaultOption: "contains" },
+  },
 ];
+
+const defaultColDef = {
+  resizable: false,
+  sortable: true,
+  filter: true,
+};
 
 const NeoGrid = (): JSX.Element => {
   return (
@@ -25,6 +43,7 @@ const NeoGrid = (): JSX.Element => {
         <AgGridReact
           rowData={data}
           columnDefs={columnDefs}
+          defaultColDef={defaultColDef}
           rowGroupPanelShow={"always"}
         />
       </div>
