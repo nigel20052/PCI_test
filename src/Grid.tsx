@@ -4,6 +4,15 @@ import data from "./near-earth-asteroids.json";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
+const phaFormatter = (params: any) => {
+  return params.data.pha === "Y" ? "Yes" : "No";
+};
+
+const dateFormatter = (params: any) => {
+  const dateStr = params.data.discovery_date;
+  return dateStr ? new Date(dateStr).toLocaleString() : "N/A";
+}
+
 const columnDefs: ColDef[] = [
   {
     field: "designation",
@@ -13,6 +22,7 @@ const columnDefs: ColDef[] = [
   {
     field: "discovery_date",
     headerName: "Discovery Date",
+    valueFormatter: dateFormatter,
   },
   { field: "h_mag", headerName: "H (mag)" },
   { field: "moid_au", headerName: "MOID (au)" },
@@ -20,7 +30,7 @@ const columnDefs: ColDef[] = [
   { field: "q_au_2", headerName: "Q (au)" },
   { field: "period_yr", headerName: "Period (yr)" },
   { field: "i_deg", headerName: "Inclination (deg)" },
-  { field: "pha", headerName: "Potentially Hazardous" },
+  { field: "pha", headerName: "Potentially Hazardous", valueFormatter: phaFormatter },
   {
     field: "orbit_class",
     headerName: "Orbit Class",
@@ -30,15 +40,12 @@ const columnDefs: ColDef[] = [
 ];
 
 const defaultColDef = {
+  flex: 1,
   resizable: false,
   sortable: true,
   filter: true,
+  cellDataType: false,
 };
-
-const formatedData = data.map((d) => ({
-  ...d,
-  discovery_date: new Date(d.discovery_date).toLocaleString(),
-}))
 
 const NeoGrid = (): JSX.Element => {
   return (
@@ -46,7 +53,7 @@ const NeoGrid = (): JSX.Element => {
       <h2>Near-Earth Object Overview</h2>
       <div className="ag-theme-alpine" style={{ height: 900, width: 1920 }}>
         <AgGridReact
-          rowData={formatedData}
+          rowData={data}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           rowGroupPanelShow={"always"}

@@ -17,7 +17,7 @@ Reading the documentation the filters and the columns can be sorted/filter with 
 3. The users have complained that the dates are not very readable. Please display the dates in a format that is more human-readable. I will trust your input on what format is best in this case.
 
 #comments
-Seems like this version is not supporting custom dataTypeDefinitions or I need to read more about the implementation of the custom data type definitions to have a more cleaner implementation, at the moment is something simple.
+Seems like this version is not supporting custom dataTypeDefinitions or I need to read more about the implementation of the custom data type definitions to have a more cleaner implentation, but later I found the "valueFormatter" option on the documentation and works nicely.
 
 4. Rather than just displaying Y or N or n/a in the Potentially Hazardous column, we should display "Yes", "No", and a blank cell for those values respectively.
 5. The users would like to be able to copy the information from this grid into a software like Excel. The user should be able to select any portion of this grid, copy the data, and paste it into excel. When they do this, they should get only the data that is copied, and they should get that data as it is displayed within the grid.
