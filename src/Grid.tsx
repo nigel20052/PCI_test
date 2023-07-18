@@ -47,6 +47,7 @@ const defaultColDef = {
   cellDataType: false,
 };
 
+
 const NeoGrid = (): JSX.Element => {
   return (
     <>
@@ -56,6 +57,8 @@ const NeoGrid = (): JSX.Element => {
           rowData={data}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
+          enableRangeSelection={true}
+          suppressMultiRangeSelection={true}
           rowGroupPanelShow={"always"}
         />
       </div>
