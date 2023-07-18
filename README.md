@@ -29,4 +29,11 @@ On this one I encountered a couple of problems to understand the documentation, 
 6. The users want to be able to quickly clear all filtering and sorting that is going on in their grid. They want one button they can click that will restore the grid to it's default view, unfiltered and unsorted. Can you add a button (of any kind) to the right of the title we added previously? The button should say "Clear Filters and Sorters" and should be positioned with a 15px space between the title and the button.
 7. Lastly, this grid is going to go to production soon, and other developers will begin doing work on this project. While creating this demo, considerations were not made to keep the code clean and organized. Please organize this codebase so that it is easier to find and make changes to components, as well as finding any interfaces, types, or helper functions.
 
+#comments
+Usually I like to separate the structure in Pages, Components, Api, Utils, Types, to have a more accesible tree, basically is order all where will be easy to find.
+on this specific case mayube a types/interfaces can be added to the json data to have more consistency and avoid to use any.
+
+ ## final
+It's my first time using AG Grid, but I think the documentation is usefull but maybe with some extra time I can understand and implement all the options what offers this library.
+
 After completing this project, please push any changes you made to a publicly accessible GitLab or GitHub repository and include that link in an email to your contact at PCI. Thank you!
